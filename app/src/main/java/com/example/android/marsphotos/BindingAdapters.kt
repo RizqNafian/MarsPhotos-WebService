@@ -27,7 +27,7 @@ import com.example.android.marsphotos.overview.MarsApiStatus
 import com.example.android.marsphotos.overview.PhotoGridAdapter
 
 /**
- * Updates the data shown in the [RecyclerView].
+ * memperbarui data yang tampil pada [RecyclerView].
  */
 @BindingAdapter("listData")
 fun bindRecyclerView(recyclerView: RecyclerView, data: List<MarsPhoto>?) {
@@ -36,7 +36,7 @@ fun bindRecyclerView(recyclerView: RecyclerView, data: List<MarsPhoto>?) {
 }
 
 /**
- * Uses the Coil library to load an image by URL into an [ImageView]
+ * mengguankan Coil library untuk memuat image dari URL ke [ImageView]
  */
 @BindingAdapter("imageUrl")
 fun bindImage(imgView: ImageView, imgUrl: String?) {
@@ -50,10 +50,10 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
 }
 
 /**
- * This binding adapter displays the [MarsApiStatus] of the network request in an image view.  When
- * the request is loading, it displays a loading_animation.  If the request has an error, it
- * displays a broken image to reflect the connection error.  When the request is finished, it
- * hides the image view.
+ * binding adapter ini menampilkan [MarsApiStatus] dari network request pada image view.  ketika
+ * request dimuat, menampilkan loading_animation. dan jika request error, akan menampilkan
+ * broken image yang menandakan connection error.  ketika request selesai, image view akan
+ * disembunyikan
  */
 @BindingAdapter("marsApiStatus")
 fun bindStatus(statusImageView: ImageView, status: MarsApiStatus) {

@@ -25,30 +25,30 @@ import com.example.android.marsphotos.databinding.GridViewItemBinding
 import com.example.android.marsphotos.network.MarsPhoto
 
 /**
- * This class implements a [RecyclerView] [ListAdapter] which uses Data Binding to present [List]
- * data, including computing diffs between lists.
+ * kelas yang mengimplementasikan [RecyclerView] [ListAdapter] dengan menggunakan Data Binding untuk [List]
+ * data, termasuk computing diffs antara list.
  */
 class PhotoGridAdapter :
     ListAdapter<MarsPhoto, PhotoGridAdapter.MarsPhotosViewHolder>(DiffCallback) {
 
     /**
-     * The MarsPhotosViewHolder constructor takes the binding variable from the associated
-     * GridViewItem, which nicely gives it access to the full [MarsPhoto] information.
+     * MarsPhotosViewHolder constructor mengambil binding variable dari associated
+     * GridViewItem, untuk memberikan akses penuh informasi [MarsPhoto].
      */
     class MarsPhotosViewHolder(
         private var binding: GridViewItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(marsPhoto: MarsPhoto) {
             binding.photo = marsPhoto
-            // This is important, because it forces the data binding to execute immediately,
-            // which allows the RecyclerView to make the correct view size measurements
+            // memaksa data binding dijalankan secara langsung,
+            // memperbolehkan RecyclerView untuk membenarkan ukuran tampilan
             binding.executePendingBindings()
         }
     }
 
     /**
-     * Allows the RecyclerView to determine which items have changed when the [List] of
-     * [MarsPhoto] has been updated.
+     * membolehkan RecyclerView menentukan items yang berubah ketika [List] dari
+     * [MarsPhoto] diperbarui.
      */
     companion object DiffCallback : DiffUtil.ItemCallback<MarsPhoto>() {
         override fun areItemsTheSame(oldItem: MarsPhoto, newItem: MarsPhoto): Boolean {
@@ -61,7 +61,7 @@ class PhotoGridAdapter :
     }
 
     /**
-     * Create new [RecyclerView] item views (invoked by the layout manager)
+     * membuat [RecyclerView] item views baru (dipanggil dengan layout manager)
      */
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -73,7 +73,7 @@ class PhotoGridAdapter :
     }
 
     /**
-     * Replaces the contents of a view (invoked by the layout manager)
+     * mengganti konten view (dipanggil dengan layout manager)
      */
     override fun onBindViewHolder(holder: MarsPhotosViewHolder, position: Int) {
         val marsPhoto = getItem(position)
